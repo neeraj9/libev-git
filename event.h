@@ -64,6 +64,9 @@ extern "C" {
 #if !defined (WIN32) || defined (__MINGW32__)
 # include <time.h> /* mingw seems to need this, for whatever reason */
 # include <sys/time.h>
+#elif defined (_WIN32)
+/* We need winsock2 header to define the TIMEVAL structure */
+#include <winsock2.h>
 #endif
 
 struct event_base;
